@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download APK</title>
+</head>
+<body>
+
+    <button id="downloadBtn">Download APK</button>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Path to your app-release file on the server
+            const filePath = 'app-release'; // change if your file is in a folder
+            const fileName = 'swayamvar.apk'; // what you want the downloaded file to be called
+
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = fileName;
+
+            // Append to body, click to download, then remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            alert('Download started! Check your browser downloads folder.');
+        });
+    </script>
+
+</body>
+</html>
